@@ -25,43 +25,75 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		for(int i=0;i<x2;i++){
+			x1++;
+		}
+		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		for(int i=0;i<x2;i++){
+			x1--;
+		}
+		return x1;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-        // Replace the following statement with your code
-		return 0;
+		int tmp = 0;
+        for(int i=0 ; i<x1 ; i++){
+		tmp = plus(tmp, x2);
+		}
+		return tmp;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		int tmp = x;
+        for(int i=0 ; i<n-1 ; i++){
+		tmp = times(tmp, x);
+		}
+		return tmp;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-        // Replace the following statement with your code
-		return 0;
+		// Might be one of the wonkiest code I've ever written :(
+		int count = 0;
+		int temp = x1;
+		while (temp>0) {
+			temp = minus(temp, x2);
+			count++;
+		}
+		//sanity check
+		if (x1==times(count, x2)) {
+			return count;
+		}
+		// I am insane
+		else if (times(count, x2)>x1) {
+			return count-1;
+		}
+		else
+		return count+1;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-        // Replace the following statement with your code
-		return 0;
+		int divisions = 0;
+		int temp = x1;
+		divisions = div(x1, x2);
+		temp = minus(temp, times(x2, divisions));
+		return temp;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-        // Replace the following statement with your code
+        for(int i = 1;i<div(x, 2);i++){
+			if (times(i, i)==x) {
+				return i;
+			}
+		}
 		return 0;
 	}	  	  
 }
