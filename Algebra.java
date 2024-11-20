@@ -90,10 +90,13 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
         for(int i = 1;i<div(x, 2);i++){
-			if (times(i, i)==x) {
+			if (times(i+1, i+1)==x) {
+				return i;
+			}
+			else if (times(i+1, i+1)>=x&&times(i-1, i-1)<=x) {
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 	}	  	  
 }
