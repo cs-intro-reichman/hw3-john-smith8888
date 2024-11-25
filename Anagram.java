@@ -52,8 +52,8 @@ public class Anagram {
 		char start = 'a';
 		str = str.toLowerCase();
 		for(int i=0;i<str.length();i++){
-			if (str.charAt(i)>=start && 
-			str.charAt(i)<=end) {
+			if ((str.charAt(i)>=start && 
+			str.charAt(i)<=end)|| str.charAt(i)==' '){
 				processed += str.charAt(i);
 			}
 		}
