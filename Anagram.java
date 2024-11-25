@@ -31,12 +31,12 @@ public class Anagram {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
 		// If after processing the strings are of a different length it's already doomed
-		if (str1.length()!=str2.length()) {
-			return false;
-		}
+		// if (str1.length()!=str2.length()) {
+		// 	return false;
+		// }
 		for (int i=0; i<str1.length();i++){
 			int c = str1.charAt(i);
-			if (str2.indexOf(c)==-1) {
+			if ((str1.charAt(i)!=' ')&&(str2.indexOf(c)==-1)) {
 				return false;
 			}
 			}
