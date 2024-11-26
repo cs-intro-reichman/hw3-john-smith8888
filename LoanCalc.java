@@ -46,10 +46,10 @@ public class LoanCalc {
 		while (Math.abs(endBalance(loan, rate, n, initialguess)) > epsilon && iterationCounter<3000000) {
 			double remain = endBalance(loan, rate, n, initialguess);
 			if (remain > 0) {
-				initialguess+=epsilon;
+				initialguess+=1;
 			}
 			else
-			initialguess -= epsilon;
+			initialguess -= 1;
 			// initialguess = initialguess + remain / (n * (1 + rate / 100));
 			iterationCounter++;
 		}
