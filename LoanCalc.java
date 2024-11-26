@@ -45,12 +45,7 @@ public class LoanCalc {
 		double initialguess = loan / n;
 		while (Math.abs(endBalance(loan, rate, n, initialguess)) > epsilon) {
 			double remain = endBalance(loan, rate, n, initialguess);
-			// initialguess = initialguess+(remain/n); //too fast apparently
-			if (remain>0){
-				initialguess +=epsilon; 
-			}
-			else
-				initialguess -= epsilon;
+			initialguess = initialguess+(remain/n);
 			iterationCounter++;
 		}
 		return initialguess;
